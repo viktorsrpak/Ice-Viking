@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhmof0nvcmvyp"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_prox1"]
+[ext_resource type="Texture2D" uid="uid://dqehv3rncu0o1" path="res://Assets/viking1/left_stand.png" id="2_8blq7"]
+[ext_resource type="Texture2D" uid="uid://bvwl4oly2ivd4" path="res://Assets/viking1/right_stand.png" id="3_87wah"]
+[ext_resource type="Texture2D" uid="uid://bcdxqttyoxl7j" path="res://Assets/viking1/left_walk1.png" id="4_haead"]
+[ext_resource type="Texture2D" uid="uid://dpipx6wva7lql" path="res://Assets/viking1/left_walk2.png" id="5_17pie"]
+[ext_resource type="Texture2D" uid="uid://dabd1tr3os5cv" path="res://Assets/viking1/right_walk1.png" id="6_qdodn"]
+[ext_resource type="Texture2D" uid="uid://bx0tiqtumkscw" path="res://Assets/viking1/right_walk2.png" id="7_0dqt0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t0tik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8blq7")
+}],
+"loop": true,
+"name": &"left_stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_87wah")
+}],
+"loop": true,
+"name": &"right_stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_haead")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_17pie")
+}],
+"loop": true,
+"name": &"walking_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qdodn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0dqt0")
+}],
+"loop": true,
+"name": &"walking_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxl22"]
+radius = 7.0
+height = 26.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_prox1")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_t0tik")
+animation = &"left_stand"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_gxl22")
+metadata/_edit_group_ = true
