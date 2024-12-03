@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://bhmof0nvcmvyp"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_prox1"]
+[ext_resource type="Script" path="res://player.gd" id="1_prox1"]
 [ext_resource type="Texture2D" uid="uid://0bbyn3g0r6kq" path="res://Assets/Viking/Viking(Ice Axe)-Sheet.png" id="2_mt5i8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_av68y"]
@@ -145,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_re4ts")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
 "speed": 10.0
 }, {
