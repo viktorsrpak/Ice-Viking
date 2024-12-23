@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bphm1nidc7yqv"]
+
+[ext_resource type="AudioStream" uid="uid://dpgjxbp5amfcu" path="res://Music/6. Throne of the Fjords-MainMenuMusic.mp3" id="1_pys8d"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_pys8d")
+autoplay = true
