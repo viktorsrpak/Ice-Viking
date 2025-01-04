@@ -5,7 +5,7 @@ extends CharacterBody2D
 var speed: float = 200
 var jump_force: float = -400
 var gravity: float = 1000
-var is_attacking: bool = false # Zastavica za napad
+var is_attacking: bool = false  # Zastavica za napad
 
 func _ready() -> void:
 	# Povezivanje signala za završetak animacije
@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	if is_attacking:
 		return
 
+	# Dodaj gravitaciju
 	velocity.y += gravity * delta
 
 	# Horizontalno kretanje
@@ -39,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_force
 		animated_sprite_2d.play("jump")
 
-	# Animacije u zraku
+	# Animacije u vazduhu
 	if not is_on_floor():
 		if velocity.y < 0:
 			animated_sprite_2d.play("jump")
@@ -51,10 +52,5 @@ func _physics_process(delta: float) -> void:
 		is_attacking = true
 		animated_sprite_2d.play("attack")
 
-	# Kretanje pomoću move_and_slide
+	# Pomeri pomoću move_and_slide
 	move_and_slide()
-
-func _on_animation_finished():
-	# Provjeri završenu animaciju
-	if animated_sprite_2d.animation == "attack":
-		is_attacking = false
