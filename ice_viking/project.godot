@@ -13,11 +13,12 @@ config_version=5
 config/name="ice-viking"
 run/main_scene="res://Scenes/Main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(1, 1, 1, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://Scenes/Global.gd"
 
 [display]
 
@@ -53,4 +54,4 @@ attack={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.544974, 0.544974, 0.544974, 1)
