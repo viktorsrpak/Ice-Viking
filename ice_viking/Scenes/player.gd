@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_bar = $Camera2D/HealthBar
 
 var speed: float = 200
 var jump_force: float = -400
@@ -8,10 +9,12 @@ var gravity: float = 1000
 var is_attacking: bool = false  # Zastavica za praćenje izvođenja napada
 var attack_duration: float = 0.5  # Trajanje napada u sekundama
 var attack_timer: float = 0.0  # Timer za napad
+var hp = 5
 
 func _ready() -> void:
 	# Povezivanje signala za završetak animacije (osigurava reset zastavice)
 	animated_sprite_2d.connect("animation_finished", Callable(self, "_on_animation_finished"))
+	health_bar.value = hp
 
 func _physics_process(delta: float) -> void:
 	# Ako je napad u tijeku, smanji timer i vrati kontrolu kad istekne
@@ -60,3 +63,11 @@ func _physics_process(delta: float) -> void:
 
 	# Pomicanje pomoću move_and_slide
 	move_and_slide()
+
+func _on_lava_hitbox_area_entered(_area: Area2D) -> void:
+	hp -= 5
+	health_bar.value = hp
+
+	# Provjera da li je hp na nuli ili ispod
+	if hp <= 0:
+		get_tree().change_scene_to_file("res://Scenes/Main_menu.tscn")
