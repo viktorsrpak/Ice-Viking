@@ -70,4 +70,7 @@ func _on_lava_hitbox_area_entered(_area: Area2D) -> void:
 
 	# Provjera da li je hp na nuli ili ispod
 	if hp <= 0:
-		get_tree().change_scene_to_file("res://Scenes/Main_menu.tscn")
+		call_deferred("change_scene_to_menu")
+
+func change_scene_to_menu() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Main_menu.tscn")
