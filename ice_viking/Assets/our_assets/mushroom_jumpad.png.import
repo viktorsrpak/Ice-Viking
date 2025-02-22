@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg3imf4g8oywe"
-path="res://.godot/imported/mushroom_sprite_sheet.png-9c0efa28ca93961a1f5288466a8cab06.ctex"
+uid="uid://sjqax0h2c4xf"
+path="res://.godot/imported/mushroom_jumpad.png-14be8317503417837ff6e901f7e76f57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/our_assets/mushroom_sprite_sheet.png"
-dest_files=["res://.godot/imported/mushroom_sprite_sheet.png-9c0efa28ca93961a1f5288466a8cab06.ctex"]
+source_file="res://Assets/our_assets/mushroom_jumpad.png"
+dest_files=["res://.godot/imported/mushroom_jumpad.png-14be8317503417837ff6e901f7e76f57.ctex"]
 
 [params]
 
