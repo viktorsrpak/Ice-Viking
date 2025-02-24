@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqsvg204qiwe2"]
+
+[ext_resource type="Texture2D" uid="uid://dc5dgqhxyr46i" path="res://Backgrounds/game_background_1/game_background_1.png" id="1_3qrbo"]
+[ext_resource type="Script" path="res://Scenes/game_over.gd" id="2_lh6rc"]
+[ext_resource type="Texture2D" uid="uid://46300yo71vqm" path="res://GUI/wooden-ui/Wooden_UI_png/skull_01.png" id="2_num14"]
+[ext_resource type="Texture2D" uid="uid://dypqmtjc70pdj" path="res://GUI/wooden-ui/Wooden_UI_png/title.png" id="3_3n4v7"]
+[ext_resource type="FontFile" uid="uid://c7ioxelc8k4et" path="res://Fonts/NorseBold-2Kge.otf" id="4_3oq7j"]
+[ext_resource type="Texture2D" uid="uid://c3vw70w4dg6ed" path="res://GUI/wooden-ui/Wooden_UI_png/Plank_07.png" id="5_nl5qk"]
+[ext_resource type="Theme" uid="uid://kwwnnhbb5svp" path="res://button_theme.tres" id="6_tk5ec"]
+[ext_resource type="PackedScene" uid="uid://bphm1nidc7yqv" path="res://Scenes/Main_Menu_Music.tscn" id="8_t57t4"]
+
+[node name="GameOver" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_3qrbo")
+script = ExtResource("2_lh6rc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -437.5
+offset_top = -501.0
+offset_right = 437.5
+offset_bottom = 501.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.360784, 0.25098, 0.2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(957, 402)
+scale = Vector2(2.62314, 2.6875)
+texture = ExtResource("2_num14")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(957, 177.5)
+scale = Vector2(1.79184, 2.66346)
+texture = ExtResource("3_3n4v7")
+metadata/_edit_group_ = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = 58.0
+offset_right = 3.0
+offset_bottom = 209.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_fonts/font = ExtResource("4_3oq7j")
+theme_override_font_sizes/font_size = 150
+text = "Game over"
+horizontal_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(957.5, 689)
+scale = Vector2(1.057, 1.18519)
+texture = ExtResource("5_nl5qk")
+
+[node name="Title2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -921.0
+offset_top = 605.0
+offset_right = 2347.0
+offset_bottom = 864.0
+grow_horizontal = 2
+scale = Vector2(0.728223, 0.725231)
+theme_override_colors/font_color = Color(0.955963, 0.955963, 0.955963, 1)
+theme_override_fonts/font = ExtResource("4_3oq7j")
+theme_override_font_sizes/font_size = 50
+text = "The halls of Valhalla remain closed 
+to the unworthy. 
+Rise again, warrior, and earn your place
+ among the honored dead."
+horizontal_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="QuitToMainMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 857.0
+offset_right = 890.0
+offset_bottom = 968.0
+theme = ExtResource("6_tk5ec")
+theme_override_font_sizes/font_size = 35
+text = "Quit to main menu"
+
+[node name="PlayAgain" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1039.0
+offset_top = 854.0
+offset_right = 1289.0
+offset_bottom = 965.0
+theme = ExtResource("6_tk5ec")
+theme_override_font_sizes/font_size = 35
+text = "play again"
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("8_t57t4")]
+
+[connection signal="pressed" from="QuitToMainMenu" to="." method="_on_quit_to_main_menu_pressed"]
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]

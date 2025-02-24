@@ -73,4 +73,4 @@ func _on_lava_hitbox_area_entered(_area: Area2D) -> void:
 		call_deferred("change_scene_to_menu")
 
 func change_scene_to_menu() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")

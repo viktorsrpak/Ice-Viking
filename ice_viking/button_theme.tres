@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://kwwnnhbb5svp"]
+
+[ext_resource type="FontFile" uid="uid://c7ioxelc8k4et" path="res://Fonts/NorseBold-2Kge.otf" id="1_pok4p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0mbv"]
+bg_color = Color(0.507943, 0.316136, 0.136144, 1)
+border_width_bottom = 5
+border_color = Color(0.388235, 0.239216, 0.0941176, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fh7y"]
+bg_color = Color(0.631373, 0.4, 0.184314, 1)
+border_width_bottom = 5
+border_color = Color(0.389634, 0.2374, 0.0940917, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wr1v5"]
+bg_color = Color(0.341141, 0.205343, 0.0774032, 1)
+border_width_bottom = 5
+border_color = Color(0.281883, 0.168357, 0.0576484, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+default_font = ExtResource("1_pok4p")
+Button/styles/hover = SubResource("StyleBoxFlat_k0mbv")
+Button/styles/normal = SubResource("StyleBoxFlat_1fh7y")
+Button/styles/pressed = SubResource("StyleBoxFlat_wr1v5")
