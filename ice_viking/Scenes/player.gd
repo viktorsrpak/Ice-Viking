@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar = $Camera2D/HealthBar
+@onready var collision = $CollisionShape2D
+
 
 var speed: float = 200
 var jump_force: float = -400
@@ -74,3 +76,18 @@ func _on_lava_hitbox_area_entered(_area: Area2D) -> void:
 
 func change_scene_to_menu() -> void:
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+
+func use_scale_power_up():
+	var powerUpDuration = 5
+	
+	animated_sprite_2d.scale *= 2
+	animated_sprite_2d.position.y *= 2
+	collision.scale *= 2
+	collision.position.y *= 2
+	
+	await get_tree().create_timer(powerUpDuration).timeout
+	
+	animated_sprite_2d.scale /= 2
+	animated_sprite_2d.position.y /= 2
+	collision.scale /= 2
+	collision.position.y /= 2
