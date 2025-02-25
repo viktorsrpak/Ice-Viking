@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpq43p3p7b8pm"]
+
+[ext_resource type="Texture2D" uid="uid://bq0fn548wjui2" path="res://Assets/our_assets/jump_rune.png" id="1_aa10f"]
+[ext_resource type="Script" path="res://Scenes/jump_rune.gd" id="1_nn77n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c15d"]
+size = Vector2(27, 44)
+
+[node name="JumpRune" type="Node2D"]
+script = ExtResource("1_nn77n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(28, 23)
+scale = Vector2(3, 3)
+texture = ExtResource("1_aa10f")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(25.5, 24)
+shape = SubResource("RectangleShape2D_4c15d")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

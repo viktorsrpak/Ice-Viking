@@ -91,3 +91,21 @@ func use_scale_power_up():
 	animated_sprite_2d.position.y /= 2
 	collision.scale /= 2
 	collision.position.y /= 2
+
+func use_speed_power_up():
+	var powerUpDuration = 5
+	
+	speed *= 2 
+	
+	await get_tree().create_timer(powerUpDuration).timeout
+	
+	speed /= 2 
+
+func use_jump_power_up():
+	var powerUpDuration = 5
+	
+	jump_force *= 1.5 
+	
+	await get_tree().create_timer(powerUpDuration).timeout
+	
+	jump_force /= 1.5

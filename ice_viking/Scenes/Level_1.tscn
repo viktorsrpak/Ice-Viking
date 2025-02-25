@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://o4f3idgyrcso"]
+[gd_scene load_steps=38 format=4 uid="uid://o4f3idgyrcso"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_amx87"]
 [ext_resource type="Texture2D" uid="uid://defhr6kjspvqn" path="res://GUI/WOODEN UI FOLDER/options buttin.png" id="2_5gxjc"]
@@ -17,7 +17,8 @@
 [ext_resource type="Script" path="res://Scenes/moving_platform.gd" id="15_75lfx"]
 [ext_resource type="Script" path="res://Scenes/moving_platform_to_left.gd" id="16_vrccv"]
 [ext_resource type="Texture2D" uid="uid://da2gyp51ov72b" path="res://Assets/our_assets/moving_platform.png" id="17_vwg0m"]
-[ext_resource type="PackedScene" uid="uid://ctvyiy1l40o3d" path="res://Scenes/size_rune.tscn" id="18_dga32"]
+[ext_resource type="PackedScene" uid="uid://dhik22nisopy2" path="res://Scenes/speed_rune.tscn" id="18_k1ylh"]
+[ext_resource type="PackedScene" uid="uid://dpq43p3p7b8pm" path="res://Scenes/jump_rune.tscn" id="19_as3v0"]
 
 [sub_resource type="GDScript" id="GDScript_rar5k"]
 
@@ -864,8 +865,11 @@ libraries = {
 "": SubResource("AnimationLibrary_ujbjr")
 }
 
-[node name="SizeRune" parent="." instance=ExtResource("18_dga32")]
-position = Vector2(385, 686)
+[node name="SpeedRune" parent="." instance=ExtResource("18_k1ylh")]
+position = Vector2(385, 755)
+
+[node name="JumpRune" parent="SpeedRune" instance=ExtResource("19_as3v0")]
+position = Vector2(-350, -73)
 
 [connection signal="pressed" from="TileMap/Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="coin_colected" from="Coins1" to="TileMap/Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
