@@ -58,6 +58,7 @@ text = "PLAY"
 
 [node name="OptionsButton" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 118.0
 offset_top = 493.0
 offset_right = 429.0
@@ -68,6 +69,7 @@ text = "OPTIONS"
 
 [node name="ExitButton" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 1541.0
 offset_top = 490.0
 offset_right = 1852.0
