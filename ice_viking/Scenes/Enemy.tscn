@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://n421n28fiq72"]
+[gd_scene load_steps=15 format=3 uid="uid://n421n28fiq72"]
 
 [ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_qn647"]
 [ext_resource type="Texture2D" uid="uid://bqo3go0cpqxr2" path="res://Assets/Enemies/No Armor/Golem_IdleB.png" id="1_ryt26"]
+[ext_resource type="Texture2D" uid="uid://bmg48fwhvwby" path="res://Assets/Enemies/No Armor/Golem_Run.png" id="3_fy5ae"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmw24"]
 atlas = ExtResource("1_ryt26")
@@ -17,6 +18,22 @@ region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3rky"]
 atlas = ExtResource("1_ryt26")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7phqp"]
+atlas = ExtResource("3_fy5ae")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmptw"]
+atlas = ExtResource("3_fy5ae")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npdjb"]
+atlas = ExtResource("3_fy5ae")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gan7a"]
+atlas = ExtResource("3_fy5ae")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5a6ou"]
@@ -35,8 +52,25 @@ animations = [{
 "texture": SubResource("AtlasTexture_c3rky")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7phqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmptw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npdjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gan7a")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xf2ej"]
@@ -53,17 +87,18 @@ texture_filter = 1
 position = Vector2(32, 8)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_5a6ou")
-autoplay = "default"
-frame_progress = 0.979921
+animation = &"walk"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(30, 10)
 shape = SubResource("RectangleShape2D_xf2ej")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Detection_Area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
 position = Vector2(30.5, 10.5)
 shape = SubResource("RectangleShape2D_cjcjb")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Detection_Area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Detection_Area" to="." method="_on_detection_area_body_exited"]
