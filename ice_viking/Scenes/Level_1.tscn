@@ -900,7 +900,7 @@ shape = SubResource("RectangleShape2D_x4072")
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("20_pxkle")]
-position = Vector2(3656, 546)
+position = Vector2(1114, 414)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("20_pxkle")]
 position = Vector2(394, 768)
