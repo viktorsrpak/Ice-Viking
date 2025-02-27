@@ -1,8 +1,30 @@
-[gd_scene load_steps=15 format=3 uid="uid://n421n28fiq72"]
+[gd_scene load_steps=15 format=3 uid="uid://dg4k3s4bjf52f"]
 
-[ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_qn647"]
 [ext_resource type="Texture2D" uid="uid://bqo3go0cpqxr2" path="res://Assets/Enemies/No Armor/Golem_IdleB.png" id="1_ryt26"]
 [ext_resource type="Texture2D" uid="uid://bmg48fwhvwby" path="res://Assets/Enemies/No Armor/Golem_Run.png" id="3_fy5ae"]
+
+[sub_resource type="GDScript" id="GDScript_0uokw"]
+script/source = "extends RigidBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if (body.name == \"CharacterBody2D\"):
+		var y_delta = position.y - body.position.y
+		if (y_delta > 30):
+			print(\"Destroy enemy\")
+		else:
+			print(\"Decrease player health\")
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmw24"]
 atlas = ExtResource("1_ryt26")
@@ -80,7 +102,7 @@ size = Vector2(62, 53)
 size = Vector2(73, 63)
 
 [node name="Enemy" type="RigidBody2D"]
-script = ExtResource("1_qn647")
+script = SubResource("GDScript_0uokw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

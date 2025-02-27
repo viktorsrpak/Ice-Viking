@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://o4f3idgyrcso"]
+[gd_scene load_steps=38 format=4 uid="uid://o4f3idgyrcso"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_amx87"]
 [ext_resource type="Texture2D" uid="uid://defhr6kjspvqn" path="res://GUI/WOODEN UI FOLDER/options buttin.png" id="2_5gxjc"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://da2gyp51ov72b" path="res://Assets/our_assets/moving_platform.png" id="17_vwg0m"]
 [ext_resource type="PackedScene" uid="uid://dhik22nisopy2" path="res://Scenes/speed_rune.tscn" id="18_k1ylh"]
 [ext_resource type="PackedScene" uid="uid://dpq43p3p7b8pm" path="res://Scenes/jump_rune.tscn" id="19_as3v0"]
-[ext_resource type="PackedScene" uid="uid://n421n28fiq72" path="res://Scenes/Enemy.tscn" id="20_pxkle"]
 
 [sub_resource type="GDScript" id="GDScript_rar5k"]
 
@@ -896,17 +895,6 @@ position = Vector2(970, -46)
 shape = SubResource("RectangleShape2D_x4072")
 
 [node name="SceneObjects" type="Node" parent="."]
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Enemy" parent="Enemies" instance=ExtResource("20_pxkle")]
-position = Vector2(1114, 414)
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource("20_pxkle")]
-position = Vector2(394, 768)
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource("20_pxkle")]
-position = Vector2(283, 770)
 
 [connection signal="pressed" from="TileMap/Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="area_entered" from="Lavas/Lava/LavaHitbox" to="TileMap/Player" method="_on_lava_hitbox_area_entered"]
