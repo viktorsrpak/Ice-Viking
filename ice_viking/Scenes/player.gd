@@ -2,34 +2,18 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar = $Camera2D/HealthBar
-@onready var collision = $CollisionShape2D
-
 
 var speed: float = 200
 var jump_force: float = -400
 var gravity: float = 1000
-var is_attacking: bool = false  # Zastavica za praćenje izvođenja napada
-var attack_duration: float = 0.5  # Trajanje napada u sekundama
-var attack_timer: float = 0.0  # Timer za napad
-var hp = 5
+var hp = 5  # Početno zdravlje igrača
 
 func _ready() -> void:
-	# Povezivanje signala za završetak animacije (osigurava reset zastavice)
-	animated_sprite_2d.connect("animation_finished", Callable(self, "_on_animation_finished"))
 	health_bar.value = hp
 
 func _physics_process(delta: float) -> void:
-	# Ako je napad u tijeku, smanji timer i vrati kontrolu kad istekne
-	if is_attacking:
-		attack_timer -= delta
-		if attack_timer <= 0.0:
-			is_attacking = false
-		return
-
-	# Dodaj gravitaciju
 	velocity.y += gravity * delta
 
-	# Horizontalno kretanje
 	if Input.is_action_pressed("move_right"):
 		velocity.x = speed
 		animated_sprite_2d.flip_h = false
@@ -45,67 +29,51 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			animated_sprite_2d.play("stand")
 
-	# Skakanje
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
 		animated_sprite_2d.play("jump")
 
-	# Animacije dok je lik u zraku
-	if not is_on_floor():
-		if velocity.y < 0:
-			animated_sprite_2d.play("jump")
-		elif velocity.y > 0:
-			animated_sprite_2d.play("fall")
-
-	# Napad (samo ako je lik na tlu i trenutno ne napada)
-	if Input.is_action_just_pressed("attack") and not is_attacking and is_on_floor():
-		is_attacking = true
-		attack_timer = attack_duration  # Postavi trajanje napada
-		animated_sprite_2d.play("attack")
-
-	# Pomicanje pomoću move_and_slide
 	move_and_slide()
 
-func _on_lava_hitbox_area_entered(_area: Area2D) -> void:
-	hp -= 5
+func take_damage(amount: int) -> void:
+	hp -= amount
+	print("Igrač je primio štetu! Preostalo zdravlje: {hp}")
 	health_bar.value = hp
 
-	# Provjera da li je hp na nuli ili ispod
 	if hp <= 0:
-		call_deferred("change_scene_to_menu")
+		die()
 
-func change_scene_to_menu() -> void:
-	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+func die() -> void:
+	print("Igrač je umro!")
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")  # Prebacuje scenu na game_over.tscn
 
-func use_scale_power_up():
-	var powerUpDuration = 5
-	
-	animated_sprite_2d.scale *= 2
-	animated_sprite_2d.position.y *= 2
-	collision.scale *= 2
-	collision.position.y *= 2
-	
+# Funkcije za Power-Up-ove
+func use_jump_power_up():
+	print("Funkcija use_jump_power_up() je pozvana!")
+	var powerUpDuration = 5  # Trajanje efekta power-up-a
+
+	jump_force *= 1.5  # Povećava snagu skoka
+
 	await get_tree().create_timer(powerUpDuration).timeout
-	
-	animated_sprite_2d.scale /= 2
-	animated_sprite_2d.position.y /= 2
-	collision.scale /= 2
-	collision.position.y /= 2
+
+	jump_force /= 1.5  # Vraća snagu skoka na početnu vrednost
 
 func use_speed_power_up():
-	var powerUpDuration = 5
-	
-	speed *= 2 
-	
-	await get_tree().create_timer(powerUpDuration).timeout
-	
-	speed /= 2 
+	print("Funkcija use_speed_power_up() je pozvana!")
+	var powerUpDuration = 5  # Trajanje efekta power-up-a
 
-func use_jump_power_up():
-	var powerUpDuration = 5
-	
-	jump_force *= 1.5 
-	
+	speed *= 1.5  # Povećava brzinu
+
 	await get_tree().create_timer(powerUpDuration).timeout
-	
-	jump_force /= 1.5
+
+	speed /= 1.5  # Vraća brzinu na početnu vrednost
+
+func use_scale_power_up():
+	print("Funkcija use_scale_power_up() je pozvana!")
+	var powerUpDuration = 5  # Trajanje efekta power-up-a
+
+	animated_sprite_2d.scale *= 1.5  # Povećava veličinu igrača
+
+	await get_tree().create_timer(powerUpDuration).timeout
+
+	animated_sprite_2d.scale /= 1.5  # Vraća veličinu igrača na početnu vrednost

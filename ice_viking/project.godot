@@ -27,6 +27,14 @@ window/size/viewport_height=1080
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
+[editor]
+
+version_control/autoload_on_startup=true
+
+[global_group]
+
+Player=""
+
 [input]
 
 move_right={
@@ -55,4 +63,4 @@ attack={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.544974, 0.544974, 0.544974, 1)
+renderer/rendering_method.mobile="gl_compatibility"

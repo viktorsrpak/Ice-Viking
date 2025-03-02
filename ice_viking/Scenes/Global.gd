@@ -1,3 +1,3 @@
 extends Node
 
-var score = 0
+var score: int = 0
