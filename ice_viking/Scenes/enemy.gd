@@ -1,83 +1,117 @@
 extends CharacterBody2D
 
-@export var speed: float = 100
-@export var gravity: float = 1000
-@export var damage_interval: float = 1.0
+class_name FrogEnemy
 
-var direction := Vector2.LEFT
-var player_in_range: Node2D = null
-var state: String = "walk"
+const speed = 30
+var is_frog_chase: bool = false
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var attack_timer: Timer = $AttackTimer
+var health = 80
+var health_max = 80
+var health_min = 0
+
+var dead: bool = false
+var taking_damage: bool = false
+var damage_to_deal = 20
+var is_dealing_damage: bool = false
+
+var dir: Vector2
+const gravity = 900
+var knockback_force = 200
+var is_roaming: bool = true
+
+var player: CharacterBody2D  # Referenca na igrača
 
 func _ready():
-	if not attack_timer.timeout.is_connected(_on_attack_timer_timeout):
-		attack_timer.timeout.connect(_on_attack_timer_timeout)
-	attack_timer.wait_time = damage_interval
-	attack_timer.one_shot = false
-	sprite.animation_finished.connect(_on_animation_finished)
+	if not $DirectionTimer.timeout.is_connected(_on_direction_timer_timeout):
+		$DirectionTimer.timeout.connect(_on_direction_timer_timeout)
 
 func _physics_process(delta):
-	velocity.y += gravity * delta
-	
-	match state:
-		"walk":
-			move_and_walk()
-		"attack":
-			velocity.x = 0  # Neprijatelj stane dok napada
+	if !is_on_floor():
+		velocity.y += gravity * delta
 
+	move(delta)
+	handle_animation()
 	move_and_slide()
 
-func move_and_walk():
-	var collision = move_and_collide(direction * speed * get_physics_process_delta_time())
-	if collision:
-		# Povuci neprijatelja malo unatrag prije nego što se okrene
-		position -= direction * 10
-		flip_direction()
+	# Proverava udaljenost od igrača i započinje praćenje ako je blizu
+	if player and global_position.distance_to(player.global_position) < 100:
+		is_frog_chase = true
+		follow_player(delta)
 	else:
-		velocity.x = direction.x * speed
-		play_animation("Walk")
+		is_frog_chase = false
 
-func flip_direction():
-	# Provjera ako je neprijatelj već u zidu
-	if is_on_wall():
-		position += direction * 5  # Povlači ga iz zida
-	direction.x *= -1
-	sprite.flip_h = !sprite.flip_h
+	# Proverava sudar sa igračem i nanosi štetu
+	if is_frog_chase and player and global_position.distance_to(player.global_position) < 70:
+		deal_damage_to_player()
 
-func _on_area_2d_body_entered(body: Node2D):
-	if body.is_in_group("Player"):
-		player_in_range = body
-		set_state("attack")
-		attack_timer.start()
-		_on_attack_timer_timeout()
+func move(delta):
+	if !dead:
+		if !is_frog_chase:
+			velocity += dir * speed * delta
+		elif is_frog_chase and !taking_damage:
+			var dir_to_player = position.direction_to(player.position) * speed
+			velocity.x = dir_to_player.x
+			is_roaming = true
+		elif dead:
+			velocity.x = 0
 
-func _on_area_2d_body_exited(body: Node2D):
-	if body == player_in_range:
-		reset_attack_state()
+func handle_animation():
+	var anim_sprite = $AnimatedSprite2D
+	if !dead and !taking_damage and !is_dealing_damage:
+		anim_sprite.play("walk")
+		if dir.x == -1:
+			anim_sprite.flip_h = true
+		elif dir.x == 1:
+			anim_sprite.flip_h = false
+	elif !dead and taking_damage and !is_dealing_damage:
+		anim_sprite.play("hurt")
+		await get_tree().create_timer(0.8).timeout  # Čeka 0.8 sekundi pre nego što prestane da prima štetu
+		taking_damage = false
 
-func _on_attack_timer_timeout():
-	if player_in_range and player_in_range.is_inside_tree():
-		if player_in_range.has_method("take_damage"):
-			player_in_range.take_damage(1)
-			play_animation("Attack")
-	else:
-		reset_attack_state()
+		is_roaming = false
+		anim_sprite.play("death")
+		await get_tree().create_timer(1.0).timeout  # Čeka 1 sekundu pre nego što ukloni neprijatelja iz scene
+		handle_death()
 
-func reset_attack_state():
-	player_in_range = null
-	set_state("walk")
-	attack_timer.stop()
+func handle_death():
+	self.queue_free()
 
-func play_animation(anim_name: String):
-	if sprite.animation != anim_name or sprite.is_playing() == false:
-		sprite.play(anim_name)
+func _on_direction_timer_timeout() -> void:
+	$DirectionTimer.wait_time = choose([1.5,2.0,2.5])
+	if !is_frog_chase:
+		dir = choose([Vector2.RIGHT, Vector2.LEFT])
+		velocity.x = 0
 
-func set_state(new_state: String):
-	if state != new_state:
-		state = new_state
+func choose(array):
+	array.shuffle()
+	return array.front()
 
-func _on_animation_finished():
-	if state == "attack":
-		play_animation("Attack")
+func follow_player(delta):
+	if player:
+		var dir_to_player = global_position.direction_to(player.global_position)
+		velocity.x = dir_to_player.x * speed
+
+func deal_damage_to_player():
+	if not is_inside_tree():  # Proverava da li je čvor deo SceneTree-a pre korišćenja get_tree()
+		print("Greška: Čvor nije deo SceneTree-a!")
+		return
+
+	call_deferred("_delayed_deal_damage")
+
+func _delayed_deal_damage():
+	if not is_inside_tree():  # Proverava ponovo za sigurnost
+		return
+
+	if not is_dealing_damage:  # Sprečava višestruko nanošenje štete odjednom
+		is_dealing_damage = true
+		print("Neprijatelj nanosi štetu igraču!")
+
+		player.take_damage(damage_to_deal)
+
+		await get_tree().create_timer(1.0).timeout
+
+		is_dealing_damage = false
+
+# Funkcija za postavljanje reference na igrača (poziva se iz glavne scene)
+func set_player(target: CharacterBody2D):
+	player = target

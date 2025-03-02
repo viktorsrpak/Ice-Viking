@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dhik22nisopy2" path="res://Scenes/speed_rune.tscn" id="18_k1ylh"]
 [ext_resource type="PackedScene" uid="uid://dpq43p3p7b8pm" path="res://Scenes/jump_rune.tscn" id="19_as3v0"]
 [ext_resource type="PackedScene" uid="uid://c1fl2ar2gjuhv" path="res://Scenes/Lava.tscn" id="20_0edyc"]
-[ext_resource type="PackedScene" uid="uid://kgc13c4au5ye" path="res://Scenes/Enemy.tscn" id="20_ywq6w"]
+[ext_resource type="PackedScene" uid="uid://kgc13c4au5ye" path="res://Scenes/toxicFrog.tscn" id="20_ywq6w"]
 
 [sub_resource type="GDScript" id="GDScript_rar5k"]
 
@@ -848,9 +848,6 @@ shape = SubResource("RectangleShape2D_x4072")
 
 [node name="SceneObjects" type="Node" parent="."]
 
-[node name="Enemy" parent="." instance=ExtResource("20_ywq6w")]
-position = Vector2(1237, 766)
-
 [node name="Lava" parent="." instance=ExtResource("20_0edyc")]
 position = Vector2(745, 808)
 
@@ -859,6 +856,10 @@ position = Vector2(1763, 808)
 
 [node name="Lava3" parent="." instance=ExtResource("20_0edyc")]
 position = Vector2(1901, 808)
+
+[node name="toxicFrog" parent="." instance=ExtResource("20_ywq6w")]
+position = Vector2(337, 787)
+scale = Vector2(2.1252, 2.18182)
 
 [connection signal="pressed" from="TileMap/Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="coin_colected" from="Coins/Coins1" to="TileMap/Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
