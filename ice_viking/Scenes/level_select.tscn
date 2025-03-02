@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=3 uid="uid://3j234focu2bc"]
+
+[ext_resource type="Texture2D" uid="uid://lnernctjamlu" path="res://Backgrounds/game_background_4/game_background_4.png" id="1_scrhp"]
+[ext_resource type="Texture2D" uid="uid://dypqmtjc70pdj" path="res://GUI/wooden-ui/Wooden_UI_png/title.png" id="2_njk23"]
+[ext_resource type="Script" path="res://Scenes/level_select.gd" id="2_xphtk"]
+[ext_resource type="FontFile" uid="uid://c7ioxelc8k4et" path="res://Fonts/NorseBold-2Kge.otf" id="3_oak65"]
+[ext_resource type="Theme" uid="uid://kwwnnhbb5svp" path="res://button_theme.tres" id="4_e071w"]
+[ext_resource type="PackedScene" uid="uid://bphm1nidc7yqv" path="res://Scenes/Main_Menu_Music.tscn" id="6_8xlqf"]
+
+[node name="LevelSelect" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_scrhp")
+script = ExtResource("2_xphtk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(975, 123)
+scale = Vector2(1.7551, 2.46154)
+texture = ExtResource("2_njk23")
+metadata/_edit_group_ = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.5
+offset_right = 158.5
+offset_bottom = 151.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_fonts/font = ExtResource("3_oak65")
+theme_override_font_sizes/font_size = 150
+text = "Levels"
+horizontal_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Level1" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -285.0
+offset_right = 206.0
+offset_bottom = -179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_e071w")
+theme_override_font_sizes/font_size = 100
+text = "level 1"
+
+[node name="Level2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -112.0
+offset_right = 206.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_e071w")
+theme_override_font_sizes/font_size = 100
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = 51.0
+offset_right = 208.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_e071w")
+theme_override_font_sizes/font_size = 100
+text = "Level 3"
+
+[node name="Tutorial" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = 210.0
+offset_right = 210.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_e071w")
+theme_override_font_sizes/font_size = 100
+text = "Tutorial"
+
+[node name="ToMainMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 900.0
+offset_right = 1173.0
+offset_bottom = 1009.0
+theme = ExtResource("4_e071w")
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("6_8xlqf")]
+
+[connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="ToMainMenu" to="." method="_on_to_main_menu_pressed"]
