@@ -273,9 +273,11 @@ animations = [{
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fwun8"]
-radius = 15.8488
+radius = 57.9301
 
 [node name="toxicFrog" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_jeleq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -292,6 +294,7 @@ shape = SubResource("CircleShape2D_puo2x")
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(1.82979, 0.685646)
