@@ -6,7 +6,7 @@ extends CharacterBody2D
 var speed: float = 200
 var jump_force: float = -400
 var gravity: float = 1000
-var hp = 5  # Početno zdravlje igrača
+var hp = 5
 
 var is_attacking: bool = false  # Zastavica za praćenje izvođenja napada
 var attack_duration: float = 0.5  # Trajanje napada u sekundama
@@ -14,8 +14,6 @@ var attack_timer: float = 0.0  # Timer za napad
 
 func _ready() -> void:
 	health_bar.value = hp
-	add_to_group("Player")  # Kritično za detekciju od strane neprijatelja
-	print("Igrač inicijaliziran, dodan u grupu 'Player'")
 
 func _physics_process(delta: float) -> void:
 	if is_attacking:
@@ -47,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("attack") and not is_attacking and is_on_floor():
 		is_attacking = true
-		attack_timer = attack_duration  # Postavi trajanje napada
+		attack_timer = attack_duration
 		animated_sprite_2d.play("attack")
 
 	move_and_slide()
@@ -55,7 +53,7 @@ func _physics_process(delta: float) -> void:
 func take_damage(amount: int) -> void:
 	print("Funkcija take_damage pozvana s iznosom: " + str(amount))
 	hp -= amount
-	print("Igrač je primio štetu! Preostalo zdravlje: " + str(hp))
+	print("Igrač je primio štetu! Preostali health: " + str(hp))
 	health_bar.value = hp
 
 	if hp <= 0:
