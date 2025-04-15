@@ -51,16 +51,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func take_damage(amount: int) -> void:
-	print("Funkcija take_damage pozvana s iznosom: " + str(amount))
 	hp -= amount
-	print("Igrač je primio štetu! Preostali health: " + str(hp))
 	health_bar.value = hp
 
 	if hp <= 0:
 		die()
 
 func die() -> void:
-	print("Igrač je umro!")
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 # Funkcije za Power-Up-ove
@@ -76,7 +73,6 @@ func use_jump_power_up():
 	
 
 func use_speed_power_up():
-	print("Funkcija use_speed_power_up() je pozvana!")
 	var powerUpDuration = 5
 
 	speed *= 1.5

@@ -1,9 +1,9 @@
 extends Node2D
 
 @export var jump_force = -700.0
-@export var detection_width = 40    # Širina detekcije (središnji dio)
-@export var vertical_offset = -20   # Pomak prema gore od platforme
-@export var detection_height = 10   # Visina detekcije
+@export var detection_width = 40   
+@export var vertical_offset = -20  
+@export var detection_height = 10  
 
 func _ready():
 	if not has_node("Area2D") or not $Area2D.has_node("CollisionShape2D"):
@@ -12,11 +12,9 @@ func _ready():
 	
 	var shape = $Area2D/CollisionShape2D.shape
 	if shape is RectangleShape2D:
-		# Smanjujemo širinu detekcije na središnji dio
-		shape.extents.x = detection_width / 2  # extents su POLOVINA širine!
+		shape.extents.x = detection_width / 2 
 		shape.extents.y = detection_height
 		
-		# Centriramo detektor i pomičemo ga točno iznad platforme
 		$Area2D/CollisionShape2D.position = Vector2(0, vertical_offset)
 	
 	if not $Area2D.body_entered.is_connected(on_body_entered):
@@ -24,7 +22,5 @@ func _ready():
 
 func on_body_entered(body):
 	if body is CharacterBody2D and body.is_in_group("Player"):
-		# Dodatna provjera y-brzine da spriječi skok u letu
-		if body.velocity.y >= 0:  # Aktiviraj samo kada igrač pada
+		if body.velocity.y >= 0:  
 			body.velocity.y = jump_force
-			print("Točan skok aktiviran")
