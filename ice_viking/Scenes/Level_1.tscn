@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://o4f3idgyrcso"]
+[gd_scene load_steps=37 format=4 uid="uid://o4f3idgyrcso"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_amx87"]
 [ext_resource type="Texture2D" uid="uid://defhr6kjspvqn" path="res://GUI/WOODEN UI FOLDER/options buttin.png" id="2_5gxjc"]
@@ -13,9 +13,8 @@
 [ext_resource type="Script" path="res://Scenes/score_hud.gd" id="10_myo7v"]
 [ext_resource type="PackedScene" uid="uid://n8rcod2b86xy" path="res://Scenes/Jumppad.tscn" id="10_r42j8"]
 [ext_resource type="FontFile" uid="uid://c7ioxelc8k4et" path="res://Fonts/NorseBold-2Kge.otf" id="12_x5ygh"]
-[ext_resource type="Script" path="res://Scenes/moving_platform.gd" id="15_75lfx"]
-[ext_resource type="Script" path="res://Scenes/moving_platform_to_left.gd" id="16_vrccv"]
-[ext_resource type="Texture2D" uid="uid://da2gyp51ov72b" path="res://Assets/our_assets/moving_platform.png" id="17_vwg0m"]
+[ext_resource type="PackedScene" uid="uid://cfrf1i0s1yhtf" path="res://Scenes/moving_platform.tscn" id="16_jlfwn"]
+[ext_resource type="PackedScene" uid="uid://cey10i2ce1hd3" path="res://Scenes/moving_platrform_to_left.tscn" id="17_2261c"]
 [ext_resource type="PackedScene" uid="uid://dhik22nisopy2" path="res://Scenes/speed_rune.tscn" id="18_k1ylh"]
 [ext_resource type="PackedScene" uid="uid://dpq43p3p7b8pm" path="res://Scenes/jump_rune.tscn" id="19_as3v0"]
 [ext_resource type="PackedScene" uid="uid://c1fl2ar2gjuhv" path="res://Scenes/Lava.tscn" id="20_0edyc"]
@@ -516,106 +515,6 @@ bg_color = Color(0.72549, 0.72549, 0.72549, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0auii"]
 bg_color = Color(0.86648, 0.11468, 9.72241e-05, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp3n7"]
-size = Vector2(29.8599, 11.6403)
-
-[sub_resource type="Animation" id="Animation_pex08"]
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 3.96667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(3149, 414), Vector2(3467, 418), Vector2(3149, 414)]
-}
-
-[sub_resource type="Animation" id="Animation_63eh3"]
-resource_name = "move"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(3145, 412), Vector2(3466, 418), Vector2(3145, 412)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocv7s"]
-_data = {
-"RESET": SubResource("Animation_pex08"),
-"move": SubResource("Animation_63eh3")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cp53"]
-size = Vector2(125, 26)
-
-[sub_resource type="Animation" id="Animation_oann3"]
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 3.96667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(3601, 557), Vector2(3267, 563), Vector2(3601, 557)]
-}
-
-[sub_resource type="Animation" id="Animation_rmvvf"]
-resource_name = "move2"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.96667, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(3601, 557), Vector2(3265, 566), Vector2(3601, 557)]
-}
-
-[sub_resource type="Animation" id="Animation_qurqd"]
-resource_name = "movetoleft"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(3601, 557), Vector2(3267, 566), Vector2(3601, 557)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujbjr"]
-_data = {
-"RESET": SubResource("Animation_oann3"),
-"move2": SubResource("Animation_rmvvf"),
-"movetoleft": SubResource("Animation_qurqd")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71np6"]
 size = Vector2(59.5, 819.25)
 
@@ -639,21 +538,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_x538l"]
 radius = 6.32456
 
-[sub_resource type="Animation" id="Animation_xh2rh"]
-resource_name = "Slide"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("door:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(7.00005, -16), Vector2(125, -15)]
-}
-
 [sub_resource type="Animation" id="Animation_2ceme"]
 length = 0.001
 tracks/0/type = "value"
@@ -667,6 +551,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(7.00005, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_xh2rh"]
+resource_name = "Slide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7.00005, -16), Vector2(125, -15)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ga6y"]
@@ -822,46 +721,9 @@ position = Vector2(35, 682)
 [node name="SpeedRune" parent="Runes" instance=ExtResource("18_k1ylh")]
 position = Vector2(385, 755)
 
-[node name="Platforms" type="Node" parent="."]
+[node name="MovingPlatform" parent="." instance=ExtResource("16_jlfwn")]
 
-[node name="MovingPlatform" type="AnimatableBody2D" parent="Platforms"]
-position = Vector2(3149, 414)
-scale = Vector2(4.58806, 1.82892)
-script = ExtResource("15_75lfx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Platforms/MovingPlatform"]
-texture_filter = 1
-position = Vector2(15.9109, 6.01446)
-scale = Vector2(1.40977, 1.98327)
-texture = ExtResource("17_vwg0m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/MovingPlatform"]
-position = Vector2(14.9299, 4.17984)
-shape = SubResource("RectangleShape2D_lp3n7")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/MovingPlatform"]
-libraries = {
-"": SubResource("AnimationLibrary_ocv7s")
-}
-
-[node name="MovingPlatrformToLeft" type="AnimatableBody2D" parent="Platforms"]
-position = Vector2(3601, 557)
-script = ExtResource("16_vrccv")
-
-[node name="Sprite2D" type="Sprite2D" parent="Platforms/MovingPlatrformToLeft"]
-texture_filter = 1
-position = Vector2(-56.8612, 14.2927)
-scale = Vector2(5.9305, 3.5579)
-texture = ExtResource("17_vwg0m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/MovingPlatrformToLeft"]
-position = Vector2(-59.5, 13)
-shape = SubResource("RectangleShape2D_5cp53")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/MovingPlatrformToLeft"]
-libraries = {
-"": SubResource("AnimationLibrary_ujbjr")
-}
+[node name="MovingPlatrformToLeft" parent="." instance=ExtResource("17_2261c")]
 
 [node name="JumpPads" type="Node" parent="."]
 

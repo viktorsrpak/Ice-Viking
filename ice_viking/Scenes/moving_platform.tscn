@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfrf1i0s1yhtf"]
+
+[ext_resource type="Script" path="res://Scenes/moving_platform.gd" id="1_t7cpy"]
+[ext_resource type="Texture2D" uid="uid://da2gyp51ov72b" path="res://Assets/our_assets/moving_platform.png" id="2_u4kh3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eupkk"]
+size = Vector2(32.2576, 12.029)
+
+[sub_resource type="Animation" id="Animation_pex08"]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3149, 414), Vector2(3467, 418), Vector2(3149, 414)]
+}
+
+[sub_resource type="Animation" id="Animation_63eh3"]
+resource_name = "move"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3145, 412), Vector2(3466, 418), Vector2(3145, 412)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocv7s"]
+_data = {
+"RESET": SubResource("Animation_pex08"),
+"move": SubResource("Animation_63eh3")
+}
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+position = Vector2(3149, 414)
+scale = Vector2(4.58806, 1.82892)
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_t7cpy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(15.9109, 6.01446)
+scale = Vector2(1.40977, 1.98327)
+texture = ExtResource("2_u4kh3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15.257, 3.82739)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_eupkk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ocv7s")
+}
