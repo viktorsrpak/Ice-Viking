@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://kwwnnhbb5svp"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://kwwnnhbb5svp"]
 
 [ext_resource type="FontFile" uid="uid://c7ioxelc8k4et" path="res://Fonts/NorseBold-2Kge.otf" id="1_pok4p"]
 
@@ -29,8 +29,17 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldi21"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ykfj"]
+bg_color = Color(1, 1, 1, 1)
+
 [resource]
 default_font = ExtResource("1_pok4p")
 Button/styles/hover = SubResource("StyleBoxFlat_k0mbv")
 Button/styles/normal = SubResource("StyleBoxFlat_1fh7y")
 Button/styles/pressed = SubResource("StyleBoxFlat_wr1v5")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ldi21")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_0ykfj")
+HSlider/styles/slider = null

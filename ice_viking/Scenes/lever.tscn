@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b545mjcdobs7l"]
+
+[ext_resource type="Texture2D" uid="uid://ik2k8jdymy60" path="res://Assets/our_assets/lever_left.png" id="1_31hw0"]
+[ext_resource type="Texture2D" uid="uid://c53fvb48uksrd" path="res://Assets/our_assets/lever_right.png" id="2_yusys"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_37ys3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_31hw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yusys")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2fx1"]
+size = Vector2(52, 38)
+
+[node name="Lever" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(26.5, 24)
+scale = Vector2(4.3125, 4)
+sprite_frames = SubResource("SpriteFrames_37ys3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22, 37)
+shape = SubResource("RectangleShape2D_p2fx1")
