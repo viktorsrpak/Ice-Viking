@@ -19,4 +19,4 @@ func _on_lever_body_entered(_Node2D) -> void:
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://Scenes/Main_menu.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/Level_2.tscn")

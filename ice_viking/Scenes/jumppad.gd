@@ -1,9 +1,9 @@
 extends Node2D
 
 @export var jump_force = -700.0
-@export var detection_width = 40   
-@export var vertical_offset = -20  
-@export var detection_height = 10  
+@export var detection_width := 40.0   # Eksplicitno float
+@export var vertical_offset := -20.0
+@export var detection_height := 10.0
 
 func _ready():
 	if not has_node("Area2D") or not $Area2D.has_node("CollisionShape2D"):
@@ -12,7 +12,7 @@ func _ready():
 	
 	var shape = $Area2D/CollisionShape2D.shape
 	if shape is RectangleShape2D:
-		shape.extents.x = detection_width / 2 
+		shape.extents.x = detection_width / 2.0  # Decimalna podjela
 		shape.extents.y = detection_height
 		
 		$Area2D/CollisionShape2D.position = Vector2(0, vertical_offset)
