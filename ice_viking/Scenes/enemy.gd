@@ -10,7 +10,7 @@ extends CharacterBody2D
 const SPEED = 40
 const GRAVITY = 900
 @export var max_hp := 3
-var hp: int = max_hp  # KLJUČNA DODANA LINIJA
+var hp: int = max_hp
 var damage_amount = 1
 var is_dealing_damage = false
 var is_chasing = false
@@ -26,7 +26,7 @@ func _ready():
 		push_error("Area2D nije pronađena! Provjerite strukturu čvorova.")
 		return
 		
-	health_bar.max_value = max_hp  # ISPRAVLJENO IZ hp U max_hp
+	health_bar.max_value = max_hp
 	health_bar.value = hp
 	animated_sprite_2d.animation_finished.connect(_on_animation_finished)
 	detection_area.body_entered.connect(_on_body_entered)
@@ -69,9 +69,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func take_damage(amount: int):
-	print("Primam štetu! Trenutni HP: ", hp)  # DEBUG
+	print("Primam štetu! Trenutni HP: ", hp)
 	hp -= amount
-	health_bar.value = hp  # OBAVEZNA LINIJA
+	health_bar.value = hp
 	
 	if hp <= 0:
 		die()
