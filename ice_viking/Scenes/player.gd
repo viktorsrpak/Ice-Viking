@@ -65,9 +65,7 @@ func start_attack():
 	check_attack()
 
 func check_attack():
-	print("/// POČINJE NAPAD ///")
 	var overlapping_areas = attack_range.get_overlapping_areas() # Promijenjeno iz bodies u areas
-	print("Detektirani hitboxevi: ", overlapping_areas)
 	
 	for area in overlapping_areas:
 		if area.is_in_group("EnemyHitbox"):
