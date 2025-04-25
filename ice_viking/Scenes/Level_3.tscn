@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cmkb0yjb3idgj"]
+[gd_scene load_steps=16 format=4 uid="uid://cmkb0yjb3idgj"]
 
 [ext_resource type="Script" path="res://Scenes/level_3.gd" id="1_p564i"]
 [ext_resource type="Texture2D" uid="uid://dv4fyyvv805mh" path="res://Assets/Rocky Roads/Backgrounds/mountains_a.png" id="1_qnkfw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d0hsbahp3eyx8" path="res://GUI/wooden-ui/Wooden_UI_png/Plank_04.png" id="7_euj8m"]
 [ext_resource type="Script" path="res://Scenes/score_hud.gd" id="8_gr0f7"]
 [ext_resource type="FontFile" uid="uid://c7ioxelc8k4et" path="res://Fonts/NorseBold-2Kge.otf" id="9_p0q3c"]
+[ext_resource type="PackedScene" uid="uid://bdiwcw41ryp5l" path="res://Scenes/shardsoul.tscn" id="11_nnsdj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mox17"]
 texture = ExtResource("2_3g2r1")
@@ -103,7 +104,7 @@ tile_map_data = PackedByteArray("AAAAABQAAAABAAIAAAAAABUAAAABAAMAAAAAABYAAAABAAQ
 tile_set = SubResource("TileSet_a37qn")
 
 [node name="Player" parent="." instance=ExtResource("3_qqte2")]
-position = Vector2(162, 687)
+position = Vector2(581, 855)
 collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -202,5 +203,8 @@ theme_override_fonts/font = ExtResource("9_p0q3c")
 theme_override_font_sizes/font_size = 40
 text = "COINS:"
 metadata/_edit_use_anchors_ = true
+
+[node name="Shardsoul" parent="." instance=ExtResource("11_nnsdj")]
+position = Vector2(161, 862)
 
 [connection signal="pressed" from="Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]
