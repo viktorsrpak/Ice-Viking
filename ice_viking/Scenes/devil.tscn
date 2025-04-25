@@ -221,7 +221,7 @@ animations = [{
 size = Vector2(40.4444, 60.4752)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f1nbw"]
-radius = 83.7305
+radius = 112.88
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kfmca"]
 radius = 51.8591
@@ -249,6 +249,7 @@ autostart = true
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(-7.90068, -8.63931)
 scale = Vector2(1.82979, 0.685646)
 shape = SubResource("CircleShape2D_f1nbw")
 

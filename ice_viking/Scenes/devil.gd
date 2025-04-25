@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var direction_timer = $DirectionTimer
 @onready var health_bar: ProgressBar = $Control/HealthBar
 
-const SPEED = 40
-const GRAVITY = 0  # Gravitacija na 0, neprijatelj lebdi
+const SPEED = 70
+const GRAVITY = 0
 const JUMP_FORCE = -300
 const MAX_JUMP_TIME = 0.5
 @export var max_hp := 3

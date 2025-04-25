@@ -580,6 +580,14 @@ radius = 68.0
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_1i3qq")
 
+[node name="Lava" parent="." instance=ExtResource("12_d6ho5")]
+position = Vector2(1431, 836)
+scale = Vector2(1.08, 1)
+
+[node name="Lava2" parent="." instance=ExtResource("12_d6ho5")]
+position = Vector2(3376, 721)
+scale = Vector2(3.69658, 3.08)
+
 [node name="TileMap" type="TileMapLayer" parent="."]
 use_parent_material = true
 position = Vector2(15, -1)
@@ -925,9 +933,6 @@ offset_right = 1917.0
 offset_bottom = 1087.0
 color = Color(0.337255, 0.694118, 1, 1)
 
-[node name="Lava" parent="." instance=ExtResource("12_d6ho5")]
-position = Vector2(1431, 836)
-
 [node name="WallsCollisions" type="Node" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WallsCollisions"]
@@ -953,10 +958,6 @@ position = Vector2(1756, 806)
 position = Vector2(2301, 751)
 
 [node name="MovingPlatrformToLeft" parent="." instance=ExtResource("17_fj8na")]
-
-[node name="Lava2" parent="." instance=ExtResource("12_d6ho5")]
-position = Vector2(3372, 785)
-scale = Vector2(3.41658, 1)
 
 [node name="toxicFrog" parent="." instance=ExtResource("18_htaa6")]
 position = Vector2(4740, 796)
