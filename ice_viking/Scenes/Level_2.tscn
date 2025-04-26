@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://bmm0rcj3vswj7"]
+[gd_scene load_steps=17 format=4 uid="uid://bmm0rcj3vswj7"]
 
 [ext_resource type="Texture2D" uid="uid://dnfu8tgiwu7ri" path="res://Assets/Rocky Roads/Backgrounds/mountains_b.png" id="1_i05xn"]
 [ext_resource type="Script" path="res://Scenes/level_2.gd" id="1_n0srq"]
 [ext_resource type="Texture2D" uid="uid://co0napv2nrsys" path="res://Assets/Rocky Roads/Tilesets/tileset_lava.png" id="2_hva1r"]
 [ext_resource type="PackedScene" uid="uid://bhmof0nvcmvyp" path="res://Scenes/Player.tscn" id="3_5087d"]
+[ext_resource type="PackedScene" uid="uid://c1fl2ar2gjuhv" path="res://Scenes/Lava.tscn" id="4_7sjnj"]
 [ext_resource type="Texture2D" uid="uid://defhr6kjspvqn" path="res://GUI/WOODEN UI FOLDER/options buttin.png" id="4_gdvvq"]
 [ext_resource type="Texture2D" uid="uid://hgjp23cnx5b3" path="res://Assets/Viking/Viking Portrait.png" id="5_mm4hv"]
 [ext_resource type="Texture2D" uid="uid://gl4y6pu2jh1p" path="res://GUI/wooden-ui/Wooden_UI_png/frame_s_05.png" id="6_nc2gw"]
@@ -17,24 +18,24 @@ texture = ExtResource("2_hva1r")
 2:0/0 = 0
 4:0/0 = 0
 2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -3.25, 8, -4, 5.125, -8, 3, -8, -1.625, -5.625, -2.75, -8, -4.625)
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:1/0 = 0
 6:1/0 = 0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 5.375, 6.625, 0.125, -0.875, -5.25, -4)
 7:1/0 = 0
-7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 5.5, -3.875, 0, -0.875, -4.875, 6.625, -8, 8)
 9:1/0 = 0
-9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 6.5, -2.125, 4.375, -0.25, -0.25, -0.125, -3.875, -0.625, -6.875, -3.25)
 11:1/0 = 0
-11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 5.125, 3.125, 1, -0.875, -5.875, -4.5)
 12:1/0 = 0
-12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0.625, 4.875, -0.125, 1.75, 1.375, -2.125, -1, -5.375, 2.125, -8, 2)
 13:1/0 = 0
-13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -5.875, 6, -4, 2.625, -2.5, -1.625, -0.5, -4.625, 3.375, -8, 2.25)
 1:2/0 = 0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
@@ -56,7 +57,7 @@ texture = ExtResource("2_hva1r")
 5:3/0 = 0
 5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:3/0 = 0
-7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 6.25, 8, 5.5, 6, 3.25, 5.125, 0.25, 3.75, -1.125, 1, -2.625, -2.5, -5.75, -4.25)
 8:3/0 = 0
 8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:3/0 = 0
@@ -68,7 +69,7 @@ texture = ExtResource("2_hva1r")
 12:3/0 = 0
 12:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:3/0 = 0
-13:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 5.375, -4.5, -0.25, -1.375, 0, 2.75, -2.25, 5.5, -8, 8)
 1:4/0 = 0
 1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:4/0 = 0
@@ -80,21 +81,20 @@ texture = ExtResource("2_hva1r")
 5:4/0 = 0
 5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:4/0 = 0
-8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -2.625, 3.375, -5.625, 0.25, -6.5, -4.125)
 9:4/0 = 0
 9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:4/0 = 0
-10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:4/0 = 0
 11:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 12:4/0 = 0
-12:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 0.375, -0.75, 2.25, 1.375, 2, 3.75, -2.375, 6.375, -8, 8)
 9:5/0 = 0
-9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 4, 8, -3.375, 3.25, -5, -2.5)
 10:5/0 = 0
 10:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:5/0 = 0
-11:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 4.25, -4.625, 0.125, -1.125, 2.5, 2.25, 0.625, 4.625, -3.875, 7, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_ugm2l"]
 physics_layer_0/collision_layer = 1
@@ -113,17 +113,24 @@ script = ExtResource("1_n0srq")
 
 [node name="Background" type="TextureRect" parent="ParallaxBackground"]
 texture_filter = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = 1.0
+offset_top = -144.0
+offset_right = 1921.0
+offset_bottom = 936.0
+scale = Vector2(1.05264, 1.143)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_i05xn")
 metadata/_edit_use_anchors_ = true
 
+[node name="Lava" parent="." instance=ExtResource("4_7sjnj")]
+position = Vector2(1677, 1497)
+scale = Vector2(1.4572, 1.44053)
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAAABYAAAABAAMAAAAAABcAAAABAAQAAAABABYAAAACAAMAAAABABcAAAACAAQAAAACABYAAAADAAMAAAACABcAAAADAAQAAAADABYAAAAEAAMAAAADABcAAAAEAAQAAAAAABUAAAABAAIAAAABABQAAAACAAEAAAABABUAAAACAAIAAAACABQAAAADAAEAAAACABUAAAADAAIAAAADABQAAAAEAAEAAAADABUAAAAEAAIAAAAEABQAAAAFAAEAAAAFABUAAAADAAEAAAAFABYAAAADAAMAAAAGABYAAAADAAMAAAAHABYAAAADAAMAAAAIABYAAAADAAMAAAAJABYAAAADAAMAAAAKABYAAAADAAMAAAALABYAAAADAAMAAAAMABYAAAADAAMAAAANABYAAAADAAMAAAAOABYAAAADAAMAAAAPABYAAAADAAMAAAAQABYAAAADAAMAAAAGABUAAAADAAEAAAAHABUAAAADAAEAAAAIABUAAAADAAEAAAAJABUAAAADAAEAAAAKABUAAAADAAEAAAALABUAAAADAAEAAAAMABUAAAADAAEAAAANABUAAAADAAEAAAAOABUAAAADAAEAAAAPABUAAAADAAEAAAAQABUAAAADAAEAAAARABUAAAAEAAEAAAARABYAAAAEAAIAAAASABYAAAAFAAIAAAASABcAAAAFAAMAAAASABgAAAAFAAQAAAARABgAAAAEAAQAAAAQABgAAAADAAQAAAAOABgAAAADAAQAAAANABgAAAADAAQAAAAPABgAAAADAAQAAAAMABgAAAADAAQAAAALABgAAAADAAQAAAAKABgAAAADAAQAAAAJABgAAAADAAQAAAAIABgAAAADAAQAAAAHABgAAAADAAQAAAAGABgAAAADAAQAAAAFABgAAAACAAQAAAAEABgAAAABAAQAAAAEABUAAAADAAEAAAAEABcAAAADAAMAAAAEABYAAAADAAMAAAAFABcAAAADAAMAAAAGABcAAAADAAMAAAAHABcAAAADAAMAAAAIABcAAAADAAMAAAAJABcAAAADAAMAAAAKABcAAAADAAMAAAALABcAAAADAAMAAAAMABcAAAADAAMAAAANABcAAAADAAMAAAAOABcAAAADAAMAAAAPABcAAAADAAMAAAAQABcAAAADAAMAAAARABcAAAADAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAABYAAAABAAMAAAAAABcAAAABAAQAAAABABYAAAACAAMAAAABABcAAAACAAQAAAACABYAAAADAAMAAAACABcAAAADAAQAAAADABYAAAAEAAMAAAADABcAAAAEAAQAAAAAABUAAAABAAIAAAABABQAAAACAAEAAAABABUAAAACAAIAAAACABQAAAADAAEAAAACABUAAAADAAIAAAADABQAAAAEAAEAAAADABUAAAAEAAIAAAAEABQAAAAFAAEAAAAEABUAAAAFAAIAAAAKABsAAAADAAEAAAALABsAAAADAAEAAAAMABsAAAADAAEAAAANABsAAAADAAEAAAAPABsAAAAJAAMAAAAQABsAAAAKAAMAAAAOABsAAAAIAAMAAAAQABwAAAADAAEAAAARABwAAAADAAEAAAASABwAAAAIAAMAAAATABwAAAAJAAMAAAAUABwAAAAKAAMAAAAVABwAAAALAAMAAAAWABwAAAADAAEAAAAXABwAAAADAAEAAAAYABwAAAADAAEAAAAPABwAAAADAAEAAAAJABsAAAADAAEAAAAZABwAAAADAAEAAAAaABwAAAADAAEAAAAZAB0AAAADAAMAAAAaAB0AAAADAAMAAAAbAB0AAAADAAEAAAAcAB0AAAADAAEAAAAbABwAAAADAAEAAAAdAB0AAAADAAEAAAAeAB0AAAADAAEAAAAfAB0AAAAEAAEAAAAEABYAAAAFAAMAAAAEABcAAAAFAAQAAAAHABYAAAAGAAEAAAAIABYAAAAHAAEAAAALABgAAAAGAAEAAAAMABgAAAAHAAEAAAAIABsAAAACAAEAAAAIABwAAAACAAIAAAAHABwAAAABAAIAAAAHAB0AAAABAAMAAAAHAB4AAAABAAQAAAAIAB4AAAACAAQAAAAJAB4AAAADAAQAAAAKAB4AAAAEAAQAAAALAB4AAAACAAQAAAAMAB4AAAADAAQAAAANAB4AAAAEAAQAAAAOAB4AAAACAAQAAAAPAB4AAAADAAQAAAAQAB4AAAAEAAQAAAARAB4AAAACAAQAAAASAB4AAAADAAQAAAATAB4AAAAEAAQAAAAUAB4AAAACAAQAAAAVAB4AAAADAAQAAAAWAB4AAAAEAAQAAAAXAB4AAAACAAQAAAAYAB4AAAADAAQAAAAZAB4AAAAEAAQAAAAaAB4AAAACAAQAAAAbAB4AAAADAAQAAAAcAB4AAAAEAAQAAAAdAB4AAAACAAQAAAAeAB4AAAADAAQAAAAfAB4AAAAEAAIAAAAJABwAAAADAAMAAAAJAB0AAAADAAMAAAAIAB0AAAADAAMAAAAKAB0AAAADAAMAAAAKABwAAAADAAMAAAALABwAAAADAAMAAAALAB0AAAADAAMAAAAMABwAAAADAAMAAAANABwAAAADAAMAAAANAB0AAAADAAMAAAAMAB0AAAADAAMAAAAOAB0AAAADAAMAAAAOABwAAAADAAMAAAAPAB0AAAADAAMAAAAQAB0AAAADAAMAAAARAB0AAAADAAMAAAASAB0AAAADAAMAAAATAB0AAAADAAMAAAAUAB0AAAADAAMAAAAVAB0AAAADAAMAAAAWAB0AAAADAAMAAAAXAB0AAAADAAMAAAAYAB0AAAADAAMAAAAgAB4AAAAFAAIAAAAgAB8AAAAFAAMAAAAfACAAAAAEAAQAAAAeACAAAAABAAQAAAAeAB8AAAABAAMAAAAfAB8AAAADAAMAAAAgACAAAAADAAMAAAAgACEAAAABAAMAAAAgACIAAAABAAQAAAAhACIAAAACAAQAAAAiACIAAAACAAQAAAAjACIAAAACAAQAAAAkACIAAAACAAQAAAAlACIAAAAFAAQAAAAlACEAAAAFAAMAAAAlACAAAAAFAAIAAAAhACEAAAADAAMAAAAiACEAAAADAAMAAAAjACEAAAADAAMAAAAkACEAAAADAAMAAAAkACAAAAADAAMAAAAjACAAAAADAAMAAAAiACAAAAADAAMAAAAhACAAAAADAAMAAAAkAB8AAAALAAEAAAAlAB8AAAADAAEAAAAmAB8AAAADAAEAAAAnAB8AAAADAAEAAAAoAB8AAAADAAEAAAApAB8AAAADAAEAAAApAB4AAAACAAEAAAAqAB4AAAADAAEAAAAqAB0AAAACAAEAAAArAB0AAAADAAEAAAArABwAAAACAAEAAAAsABwAAAADAAEAAAAtABwAAAADAAEAAAAuABwAAAAFAAIAAAAxABsAAAACAAEAAAAyABsAAAADAAEAAAAzABsAAAAEAAEAAAA3ABsAAAACAAEAAAA4ABsAAAADAAEAAAA5ABsAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_ugm2l")
 
 [node name="Player" parent="." instance=ExtResource("3_5087d")]
@@ -228,6 +235,9 @@ text = "COINS:"
 metadata/_edit_use_anchors_ = true
 
 [node name="Devil" parent="." instance=ExtResource("11_64l4k")]
-position = Vector2(583, 963)
+position = Vector2(1036, 1288)
+
+[node name="Devil2" parent="." instance=ExtResource("11_64l4k")]
+position = Vector2(2144, 1292)
 
 [connection signal="pressed" from="Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]
