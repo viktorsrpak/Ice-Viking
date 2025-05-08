@@ -235,9 +235,9 @@ text = "COINS:"
 metadata/_edit_use_anchors_ = true
 
 [node name="Devil" parent="." instance=ExtResource("11_64l4k")]
-position = Vector2(1036, 1288)
+position = Vector2(1074, 1300)
 
 [node name="Devil2" parent="." instance=ExtResource("11_64l4k")]
-position = Vector2(2144, 1292)
+position = Vector2(2131, 1309)
 
 [connection signal="pressed" from="Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]
