@@ -104,7 +104,7 @@ tile_map_data = PackedByteArray("AAAAABQAAAABAAIAAAAAABUAAAABAAMAAAAAABYAAAABAAQ
 tile_set = SubResource("TileSet_a37qn")
 
 [node name="Player" parent="." instance=ExtResource("3_qqte2")]
-position = Vector2(581, 855)
+position = Vector2(107, 856)
 collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -205,6 +205,6 @@ text = "COINS:"
 metadata/_edit_use_anchors_ = true
 
 [node name="Shardsoul" parent="." instance=ExtResource("11_nnsdj")]
-position = Vector2(161, 862)
+position = Vector2(544, 854)
 
 [connection signal="pressed" from="Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]

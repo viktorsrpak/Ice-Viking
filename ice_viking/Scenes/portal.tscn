@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://c568cqn25db84"]
+
+[ext_resource type="Texture2D" uid="uid://chb78mtd2n484" path="res://Assets/our_assets/portal1.png" id="1_hg4wm"]
+[ext_resource type="Texture2D" uid="uid://buk8usi0txvj8" path="res://Assets/our_assets/portal2.png" id="2_m5q5x"]
+[ext_resource type="Texture2D" uid="uid://dxi16orpaohwl" path="res://Assets/our_assets/door.png" id="3_mv335"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6sdcr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hg4wm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m5q5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x538l"]
+radius = 6.32456
+
+[sub_resource type="Animation" id="Animation_2ceme"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.00005, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_xh2rh"]
+resource_name = "Slide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7.00005, -16), Vector2(125, -15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ga6y"]
+_data = {
+"RESET": SubResource("Animation_2ceme"),
+"Slide": SubResource("Animation_xh2rh")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_po5pi"]
+radius = 68.0
+
+[node name="Portal" type="StaticBody2D"]
+position = Vector2(64, 82)
+
+[node name="Portal_look" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(5.74978, -9.37499)
+scale = Vector2(4.17188, 4.03906)
+sprite_frames = SubResource("SpriteFrames_6sdcr")
+autoplay = "default"
+
+[node name="door" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(7.00005, -16)
+scale = Vector2(4.56249, 4.42969)
+texture = ExtResource("3_mv335")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -98)
+shape = SubResource("CircleShape2D_x538l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4ga6y")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, -13)
+shape = SubResource("CircleShape2D_po5pi")

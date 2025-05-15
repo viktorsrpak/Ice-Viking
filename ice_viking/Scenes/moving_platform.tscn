@@ -8,6 +8,7 @@ size = Vector2(32.2576, 12.029)
 
 [sub_resource type="Animation" id="Animation_pex08"]
 length = 4.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,10 +16,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 3.96667),
+"times": PackedFloat32Array(1.6, 2.66667, 3.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(3149, 414), Vector2(3467, 418), Vector2(3149, 414)]
+"values": [Vector2(253, 789), Vector2(317, 793), Vector2(434, 789)]
 }
 
 [sub_resource type="Animation" id="Animation_63eh3"]
@@ -45,7 +46,7 @@ _data = {
 }
 
 [node name="MovingPlatform" type="AnimatableBody2D"]
-position = Vector2(3149, 414)
+position = Vector2(423.353, 789)
 scale = Vector2(4.58806, 1.82892)
 collision_layer = 15
 collision_mask = 15
