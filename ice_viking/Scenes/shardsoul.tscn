@@ -322,4 +322,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_8r2q5")
 max_value = 5.0
 show_percentage = false
 
+[node name="LedgeRay" type="RayCast2D" parent="."]
+position = Vector2(40, -29)
+target_position = Vector2(1, 92)
+
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]

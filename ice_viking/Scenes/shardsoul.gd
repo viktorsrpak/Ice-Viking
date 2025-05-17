@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var direction_timer = $DirectionTimer
 @onready var health_bar: ProgressBar = $Control/HealthBar
+@onready var ledge_ray: RayCast2D = $LedgeRay
 
 const SPEED = 40
 const GRAVITY = 900
@@ -52,7 +53,7 @@ func _physics_process(delta):
 		is_jumping = false
 		jump_timer = 0.0
 
-	# Lov na igrača
+	# pracenje igraca
 	if is_chasing and player and is_instance_valid(player):
 		var direction = global_position.direction_to(player.global_position)
 		velocity.x = direction.x * SPEED
@@ -64,15 +65,30 @@ func _physics_process(delta):
 		elif not is_dealing_damage:
 			animated_sprite_2d.play("walk")
 	else:
-		velocity.x = dir.x * SPEED
-
-		if velocity.x != 0:
-			animated_sprite_2d.play("walk")
-			animated_sprite_2d.flip_h = velocity.x < 0
+		update_ledge_ray_direction()
+		if ledge_ray.is_colliding():
+			velocity.x = dir.x * SPEED
+			if velocity.x != 0:
+				animated_sprite_2d.play("walk")
+				animated_sprite_2d.flip_h = velocity.x < 0
+			else:
+				animated_sprite_2d.play("idle")
 		else:
+			velocity.x = 0
 			animated_sprite_2d.play("idle")
 
 	move_and_slide()
+
+func update_ledge_ray_direction():
+	if dir == Vector2.RIGHT:
+		ledge_ray.position.x = 8
+		ledge_ray.target_position = Vector2(0, 16)
+	elif dir == Vector2.LEFT:
+		ledge_ray.position.x = -8
+		ledge_ray.target_position = Vector2(0, 16)
+	else:
+		ledge_ray.position.x = 0
+		ledge_ray.target_position = Vector2(0, 16)
 
 func take_damage(amount: int):
 	hp -= amount

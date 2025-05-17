@@ -595,7 +595,7 @@ tile_map_data = PackedByteArray("AAABACIAAQABAAEAAAACACIAAQACAAwAAAADACIAAQADAAw
 tile_set = SubResource("TileSet_i5o3w")
 
 [node name="Player" parent="." instance=ExtResource("4_c2n46")]
-position = Vector2(3530, 511)
+position = Vector2(155, 732)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2(0.5, 0.5)
@@ -722,6 +722,7 @@ position = Vector2(35, 682)
 position = Vector2(385, 755)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("16_jlfwn")]
+position = Vector2(423.353, 789)
 
 [node name="MovingPlatrformToLeft" parent="." instance=ExtResource("17_2261c")]
 
