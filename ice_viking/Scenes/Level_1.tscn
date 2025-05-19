@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://o4f3idgyrcso"]
+[gd_scene load_steps=38 format=4 uid="uid://o4f3idgyrcso"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_amx87"]
 [ext_resource type="Texture2D" uid="uid://defhr6kjspvqn" path="res://GUI/WOODEN UI FOLDER/options buttin.png" id="2_5gxjc"]
@@ -577,6 +577,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_bmay3"]
 radius = 68.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_ogbjy"]
+font_size = 80
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_amx87")
 
@@ -722,7 +725,6 @@ position = Vector2(35, 682)
 position = Vector2(385, 755)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("16_jlfwn")]
-position = Vector2(423.353, 789)
 
 [node name="MovingPlatrformToLeft" parent="." instance=ExtResource("17_2261c")]
 
@@ -750,19 +752,19 @@ position = Vector2(2906, 612)
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="Coins1" parent="Coins" instance=ExtResource("2_lisfv")]
+[node name="Coins1" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
 position = Vector2(894, 731)
 
-[node name="Coins2" parent="Coins" instance=ExtResource("2_lisfv")]
+[node name="Coins2" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
 position = Vector2(573, 723)
 
-[node name="Coins3" parent="Coins" instance=ExtResource("2_lisfv")]
+[node name="Coins3" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
 position = Vector2(630, 705)
 
-[node name="Coins4" parent="Coins" instance=ExtResource("2_lisfv")]
+[node name="Coins4" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
 position = Vector2(832, 703)
 
-[node name="Coins5" parent="Coins" instance=ExtResource("2_lisfv")]
+[node name="Coins5" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
 position = Vector2(1265, 397)
 
 [node name="Lever" parent="." instance=ExtResource("21_o2qde")]
@@ -814,6 +816,17 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/Area2D"]
 position = Vector2(4, -13)
 shape = SubResource("CircleShape2D_bmay3")
+
+[node name="Level1" type="Label" parent="."]
+offset_left = -3.0
+offset_top = 522.0
+offset_right = 340.0
+offset_bottom = 693.0
+theme_override_fonts/font = ExtResource("12_x5ygh")
+text = "LEVEL 1"
+label_settings = SubResource("LabelSettings_ogbjy")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="coin_colected" from="Coins/Coins1" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]

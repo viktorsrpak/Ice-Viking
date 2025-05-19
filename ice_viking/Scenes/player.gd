@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var attack_range: Area2D = $AttackRange
-@onready var health_bar = $Camera2D/HealthBar  # ISPRAVNO
+@onready var health_bar = $Camera2D/HealthBar
 
 
 

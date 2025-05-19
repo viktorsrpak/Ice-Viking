@@ -14,3 +14,7 @@ func _on_coins_1_coin_colected() -> void:
 
 func _on_coins_2_coin_colected() -> void:
 	_update_score_label()
+
+
+func _on_coins_1_coin_collected() -> void:
+	_update_score_label()

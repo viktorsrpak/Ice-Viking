@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cmkb0yjb3idgj"]
+[gd_scene load_steps=34 format=4 uid="uid://cmkb0yjb3idgj"]
 
 [ext_resource type="Script" path="res://Scenes/level_3.gd" id="1_p564i"]
 [ext_resource type="Texture2D" uid="uid://dv4fyyvv805mh" path="res://Assets/Rocky Roads/Backgrounds/mountains_a.png" id="1_qnkfw"]
@@ -178,6 +178,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_e526k"]
 radius = 68.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_vjtiq"]
+font_size = 80
+
 [node name="Level_3" type="Node2D"]
 script = ExtResource("1_p564i")
 
@@ -203,7 +206,7 @@ tile_map_data = PackedByteArray("AAAAABQAAAABAAIAAAAAABUAAAABAAMAAAAAABYAAAABAAQ
 tile_set = SubResource("TileSet_a37qn")
 
 [node name="Player" parent="." instance=ExtResource("3_qqte2")]
-position = Vector2(95, 850)
+position = Vector2(116, 839)
 collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -371,6 +374,17 @@ position = Vector2(4, -12)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/Area2D"]
 position = Vector2(4, -3)
 shape = SubResource("CircleShape2D_e526k")
+
+[node name="Level3" type="Label" parent="."]
+offset_left = 93.0
+offset_top = 599.0
+offset_right = 436.0
+offset_bottom = 770.0
+theme_override_fonts/font = ExtResource("9_p0q3c")
+text = "LEVEL 3"
+label_settings = SubResource("LabelSettings_vjtiq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="body_entered" from="Void" to="Void" method="_on_body_entered"]
