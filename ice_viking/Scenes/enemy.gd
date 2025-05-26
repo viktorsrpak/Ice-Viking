@@ -8,8 +8,8 @@ extends CharacterBody2D
 
 const SPEED = 40
 const GRAVITY = 900
-const JUMP_FORCE = -300  
-const MAX_JUMP_TIME = 0.5
+const JUMP_FORCE = -300  # Negativna vrijednost za skakanje prema gore
+const MAX_JUMP_TIME = 0.5  # Maksimalno trajanje skoka prije nego što padne
 @export var max_hp := 3
 var hp: int = max_hp
 var damage_amount = 1

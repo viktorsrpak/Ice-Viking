@@ -752,19 +752,19 @@ position = Vector2(2906, 612)
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="Coins1" parent="Coins" groups=["coins"] instance=ExtResource("2_lisfv")]
+[node name="Coins1" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
 position = Vector2(894, 731)
 
-[node name="Coins2" parent="Coins" groups=["coins"] instance=ExtResource("2_lisfv")]
+[node name="Coins2" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
 position = Vector2(573, 723)
 
-[node name="Coins3" parent="Coins" groups=["coins"] instance=ExtResource("2_lisfv")]
+[node name="Coins3" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
 position = Vector2(630, 705)
 
-[node name="Coins4" parent="Coins" groups=["coins"] instance=ExtResource("2_lisfv")]
+[node name="Coins4" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
 position = Vector2(832, 703)
 
-[node name="Coins5" parent="Coins" groups=["coins"] instance=ExtResource("2_lisfv")]
+[node name="Coins5" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
 position = Vector2(1265, 397)
 
 [node name="Lever" parent="." instance=ExtResource("21_o2qde")]

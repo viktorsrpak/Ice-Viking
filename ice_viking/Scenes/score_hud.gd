@@ -2,14 +2,19 @@ extends Control
 
 func _ready():
 	Global.score = 0
-	await get_tree().process_frame  # Pričekaj jedan frame da se svi novčići učitaju u scenu
 	_update_score_label()
-	for coin in get_tree().get_nodes_in_group("coins"):
-		if not coin.coin_colected.is_connected(_on_coin_collected):
-			coin.coin_colected.connect(_on_coin_collected)
 
 func _update_score_label():
-	$Label.text = "SCORE: %d | NOVČIĆI: %d/%d" % [Global.score, Global.coins_collected, Global.coins_total]
+	$Label.text = "SCORE: " + str(Global.score)
 
-func _on_coin_collected():
+
+func _on_coins_1_coin_colected() -> void:
+	_update_score_label()
+
+
+func _on_coins_2_coin_colected() -> void:
+	_update_score_label()
+
+
+func _on_coins_1_coin_collected() -> void:
 	_update_score_label()
