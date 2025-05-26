@@ -750,23 +750,6 @@ position = Vector2(2812, 783)
 texture_filter = 1
 position = Vector2(2906, 612)
 
-[node name="Coins" type="Node" parent="."]
-
-[node name="Coins1" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
-position = Vector2(894, 731)
-
-[node name="Coins2" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
-position = Vector2(573, 723)
-
-[node name="Coins3" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
-position = Vector2(630, 705)
-
-[node name="Coins4" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
-position = Vector2(832, 703)
-
-[node name="Coins5" parent="Coins" groups=["Coins"] instance=ExtResource("2_lisfv")]
-position = Vector2(1265, 397)
-
 [node name="Lever" parent="." instance=ExtResource("21_o2qde")]
 position = Vector2(3645, 542)
 
@@ -828,11 +811,26 @@ label_settings = SubResource("LabelSettings_ogbjy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Coins1" parent="." instance=ExtResource("2_lisfv")]
+position = Vector2(894, 731)
+
+[node name="Coins2" parent="." instance=ExtResource("2_lisfv")]
+position = Vector2(573, 723)
+
+[node name="Coins3" parent="." instance=ExtResource("2_lisfv")]
+position = Vector2(630, 705)
+
+[node name="Coins4" parent="." instance=ExtResource("2_lisfv")]
+position = Vector2(832, 703)
+
+[node name="Coins5" parent="." instance=ExtResource("2_lisfv")]
+position = Vector2(1265, 397)
+
 [connection signal="pressed" from="Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="coin_colected" from="Coins/Coins1" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
-[connection signal="coin_colected" from="Coins/Coins2" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
-[connection signal="coin_colected" from="Coins/Coins3" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
-[connection signal="coin_colected" from="Coins/Coins4" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
-[connection signal="coin_colected" from="Coins/Coins5" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
 [connection signal="body_entered" from="Lever" to="." method="_on_lever_body_entered"]
 [connection signal="body_entered" from="Portal/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="coin_colected" from="Coins1" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins2" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins3" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins4" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins5" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]

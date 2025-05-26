@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b545mjcdobs7l"]
+[gd_scene load_steps=7 format=3 uid="uid://b545mjcdobs7l"]
 
+[ext_resource type="Script" path="res://Scenes/lever.gd" id="1_3wxmo"]
 [ext_resource type="Texture2D" uid="uid://ik2k8jdymy60" path="res://Assets/our_assets/lever_left.png" id="1_31hw0"]
 [ext_resource type="Texture2D" uid="uid://c53fvb48uksrd" path="res://Assets/our_assets/lever_right.png" id="2_yusys"]
 
@@ -20,7 +21,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2fx1"]
 size = Vector2(52, 38)
 
+[sub_resource type="LabelSettings" id="LabelSettings_5nb7x"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Lever" type="Area2D"]
+script = ExtResource("1_3wxmo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -31,3 +37,16 @@ sprite_frames = SubResource("SpriteFrames_37ys3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(22, 37)
 shape = SubResource("RectangleShape2D_p2fx1")
+
+[node name="WarningLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = -37.0
+offset_top = -110.0
+offset_right = 118.0
+offset_bottom = -86.0
+scale = Vector2(0.810932, 1.54294)
+text = "Collect all coins first"
+label_settings = SubResource("LabelSettings_5nb7x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

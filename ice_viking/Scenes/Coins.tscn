@@ -112,7 +112,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hfnex"]
 radius = 13.0384
 
-[node name="Coins" type="Area2D"]
+[node name="Coins" type="Area2D" groups=["coins"]]
 script = ExtResource("1_itn43")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

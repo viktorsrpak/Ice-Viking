@@ -165,11 +165,3 @@ func _on_direction_timer_timeout():
 func choose(array):
 	array.shuffle()
 	return array.front()
-
-# Funkcija za skakanje (ako je potrebno)
-func jump():
-	if not is_jumping and is_on_floor():
-		velocity.y = JUMP_FORCE
-		is_jumping = true
-		jump_timer = MAX_JUMP_TIME
-		animated_sprite_2d.play("jump")  # Ako postoji animacija za skakanje
