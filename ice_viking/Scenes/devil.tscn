@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b3bwde7lr2oon"]
+[gd_scene load_steps=39 format=3 uid="uid://b3bwde7lr2oon"]
 
 [ext_resource type="Texture2D" uid="uid://bvyy2qfsbtg41" path="res://Assets/Enemies/Flying Demon 2D Pixel Art/Sprites/with_outline/ATTACK.png" id="1_145jg"]
 [ext_resource type="Script" path="res://Scenes/devil.gd" id="1_vpq2u"]
@@ -226,6 +226,12 @@ radius = 112.88
 [sub_resource type="CircleShape2D" id="CircleShape2D_kfmca"]
 radius = 51.8591
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iikj"]
+bg_color = Color(0.861987, 0.205459, 0.230179, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j528u"]
+bg_color = Color(0, 0.649232, 0.211805, 1)
+
 [node name="Devil" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(-0.886, 0.926)
 collision_layer = 2
@@ -263,17 +269,28 @@ shape = SubResource("CircleShape2D_kfmca")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
+offset_left = -6.77201
+offset_top = -28.0778
+offset_right = 33.228
+offset_bottom = 11.9222
+scale = Vector2(2.5579, 2.51124)
 
 [node name="HealthBar" type="ProgressBar" parent="Control"]
-layout_mode = 0
-offset_left = -57.0
-offset_top = -72.0
-offset_right = 30.0
-offset_bottom = -45.0
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -14.0
+offset_right = -13.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.643168, 0.22654)
+theme_override_styles/background = SubResource("StyleBoxFlat_2iikj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_j528u")
+max_value = 5.0
 show_percentage = false
-metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
