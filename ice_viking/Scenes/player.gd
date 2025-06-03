@@ -111,8 +111,10 @@ func use_scale_power_up():
 	print("Funkcija use_scale_power_up() je pozvana!")
 	var powerUpDuration = 5
 
-	animated_sprite_2d.scale *= 1.5
+	animated_sprite_2d.scale *= 1.2
+	attack_damage += 3
 
 	await get_tree().create_timer(powerUpDuration).timeout
 
-	animated_sprite_2d.scale /= 1.5
+	animated_sprite_2d.scale /= 1.2
+	attack_damage -= 3
