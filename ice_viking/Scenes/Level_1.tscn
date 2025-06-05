@@ -726,6 +726,7 @@ position = Vector2(470, 763)
 position = Vector2(1621, 775)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("16_jlfwn")]
+position = Vector2(423.353, 789)
 
 [node name="MovingPlatrformToLeft" parent="." instance=ExtResource("17_2261c")]
 

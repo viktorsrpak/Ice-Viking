@@ -413,27 +413,6 @@ position = Vector2(4917, 36)
 [node name="Coins2" parent="." instance=ExtResource("20_cogqy")]
 position = Vector2(1058, 779)
 
-[node name="Coins3" parent="." instance=ExtResource("20_cogqy")]
-position = Vector2(2068, 764)
-
-[node name="Coins4" parent="." instance=ExtResource("20_cogqy")]
-position = Vector2(3470, 333)
-
-[node name="Coins5" parent="." instance=ExtResource("20_cogqy")]
-position = Vector2(5396, -3)
-
-[node name="Coins6" parent="." instance=ExtResource("20_cogqy")]
-position = Vector2(5547, -438)
-
-[node name="Coins7" parent="." instance=ExtResource("20_cogqy")]
-position = Vector2(6053, -433)
-
-[node name="Coins8" parent="." instance=ExtResource("20_cogqy")]
-position = Vector2(6150, -484)
-
-[node name="Coins9" parent="." instance=ExtResource("20_cogqy")]
-position = Vector2(6291, -430)
-
 [node name="SizeRune2" parent="." instance=ExtResource("21_bacfs")]
 position = Vector2(7592, -1184)
 
@@ -446,6 +425,33 @@ position = Vector2(6711, -402)
 [node name="Coins10" parent="." instance=ExtResource("20_cogqy")]
 position = Vector2(1380, 762)
 
+[node name="Coins3" parent="." instance=ExtResource("20_cogqy")]
+position = Vector2(2066, 773)
+
+[node name="Coins4" parent="." instance=ExtResource("20_cogqy")]
+position = Vector2(3461, 329)
+
+[node name="Coins5" parent="." instance=ExtResource("20_cogqy")]
+position = Vector2(3890, 326)
+
+[node name="Coins6" parent="." instance=ExtResource("20_cogqy")]
+position = Vector2(5375, -11)
+
+[node name="Coins7" parent="." instance=ExtResource("20_cogqy")]
+position = Vector2(5549, -431)
+
+[node name="Coins8" parent="." instance=ExtResource("20_cogqy")]
+position = Vector2(6054, -427)
+
+[node name="Coins9" parent="." instance=ExtResource("20_cogqy")]
+position = Vector2(6149, -481)
+
+[node name="Coins11" parent="." instance=ExtResource("20_cogqy")]
+position = Vector2(6292, -438)
+
+[node name="Coins12" parent="." instance=ExtResource("20_cogqy")]
+position = Vector2(8318, -1355)
+
 [connection signal="pressed" from="Player/Camera2D/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="body_entered" from="Void" to="Void" method="_on_body_entered"]
 [connection signal="body_entered" from="Lever" to="." method="_on_lever_body_entered"]
@@ -453,3 +459,12 @@ position = Vector2(1380, 762)
 [connection signal="coin_colected" from="Coins1" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
 [connection signal="coin_colected" from="Coins2" to="Player/Camera2D/ScoreHUD" method="_on_coins_2_coin_colected"]
 [connection signal="coin_colected" from="Coins10" to="Player/Camera2D/ScoreHUD" method="_on_coins_2_coin_colected"]
+[connection signal="coin_colected" from="Coins3" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins4" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins5" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins6" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins7" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins8" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins9" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins11" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
+[connection signal="coin_colected" from="Coins12" to="Player/Camera2D/ScoreHUD" method="_on_coins_1_coin_colected"]
