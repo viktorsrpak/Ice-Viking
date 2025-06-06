@@ -7,23 +7,24 @@ extends CharacterBody2D
 @onready var health_bar: ProgressBar = $Control/HealthBar
 @onready var ledge_ray: RayCast2D = $LedgeRay
 
-const SPEED = 40
-const GRAVITY = 900
-const JUMP_FORCE = -300
-const MAX_JUMP_TIME = 0.5
-@export var max_hp := 10
-var hp: int = max_hp
-var damage_amount = 1
-var is_dealing_damage = false
-var is_chasing = false
-var dir = Vector2.RIGHT
-var player = null
-var damage_cooldown = 1.0
-var attack_distance = 65
-var is_dead: bool = false
-var is_hurt: bool = false
-var is_jumping = false
-var jump_timer = 0.0
+# Boss neprijatelj, ima više HP-a i koristi raycast za rubove platforme
+const SPEED = 40  			# Brzina kretanja bossa
+const GRAVITY = 900  		# Gravitacija
+const JUMP_FORCE = -300  	# Snaga skoka
+const MAX_JUMP_TIME = 0.5  	# Maksimalno trajanje skoka
+@export var max_hp := 10  	# Maksimalni HP bossa, može se mijenjati u editoru
+var hp: int = max_hp  		# Trenutni HP
+var damage_amount = 1  		# Šteta koju boss nanosi igraču
+var is_dealing_damage = false  		# Je li u napadu
+var is_chasing = false  			# Prati li igrača
+var dir = Vector2.RIGHT  			# Smjer kretanja
+var player = null  					# Referenca na igrača
+var damage_cooldown = 1.0  			# Pauza između napada
+var attack_distance = 65  			# Udaljenost za napad
+var is_dead: bool = false  			# Je li mrtav
+var is_hurt: bool = false  			# Je li u animaciji ozljede
+var is_jumping = false  			# Je li u zraku
+var jump_timer = 0.0  				# Timer za skok
 
 func _ready():
 	if not detection_area:
@@ -41,11 +42,11 @@ func _ready():
 
 	animated_sprite_2d.play("idle")
 
+# Glavna logika kretanja, napadanja, gravitacije i raycast za rubove
 func _physics_process(delta):
 	if is_dead or is_hurt:
 		return
 
-	# Gravitacija
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 		is_jumping = true
@@ -53,7 +54,6 @@ func _physics_process(delta):
 		is_jumping = false
 		jump_timer = 0.0
 
-	# pracenje igraca
 	if is_chasing and player and is_instance_valid(player):
 		var direction = global_position.direction_to(player.global_position)
 		velocity.x = direction.x * SPEED
@@ -79,6 +79,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+# Ažuriranje smjera raycasta za provjeru ruba platforme
 func update_ledge_ray_direction():
 	if dir == Vector2.RIGHT:
 		ledge_ray.position.x = 8
@@ -90,6 +91,7 @@ func update_ledge_ray_direction():
 		ledge_ray.position.x = 0
 		ledge_ray.target_position = Vector2(0, 16)
 
+# Primanje štete
 func take_damage(amount: int):
 	hp -= amount
 	health_bar.value = hp
@@ -102,17 +104,15 @@ func take_damage(amount: int):
 		await get_tree().create_timer(0.3).timeout
 		is_hurt = false
 
+# Smrt bossa
 func die():
 	is_dead = true
 	animated_sprite_2d.play("death")
 	set_physics_process(false)
-
 	$CollisionShape2D.set_deferred("disabled", true)
 	if has_node("Hitbox/CollisionShape2D"):
 		$Hitbox/CollisionShape2D.set_deferred("disabled", true)
-
 	health_bar.visible = false
-
 	await animated_sprite_2d.animation_finished
 	queue_free()
 
@@ -131,6 +131,7 @@ func _on_body_exited(body):
 		player = null
 		animated_sprite_2d.play("idle")
 
+# Napad na igrača
 func deal_damage_to_player():
 	if not is_dealing_damage and player and is_instance_valid(player):
 		is_dealing_damage = true
@@ -149,6 +150,7 @@ func choose(array):
 	array.shuffle()
 	return array.front()
 
+# Skakanje bossa (ako je potrebno)
 func jump():
 	if not is_jumping and is_on_floor():
 		velocity.y = JUMP_FORCE

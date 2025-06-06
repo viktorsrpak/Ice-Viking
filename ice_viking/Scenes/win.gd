@@ -1,15 +1,12 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
+# Skripta za win scenu
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
+# Gumb za izlaz iz igre
 func _on_end_pressed() -> void:
 	get_tree().quit()
