@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://ctvyiy1l40o3d" path="res://Scenes/size_rune.tscn" id="21_bacfs"]
 [ext_resource type="PackedScene" uid="uid://dpq43p3p7b8pm" path="res://Scenes/jump_rune.tscn" id="22_eo3b3"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mox17"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u0pfu"]
 texture = ExtResource("2_3g2r1")
 2:0/0 = 0
 3:0/0 = 0
@@ -83,7 +83,7 @@ texture = ExtResource("2_3g2r1")
 10:5/0 = 0
 10:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_npahg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bsw0v"]
 texture = ExtResource("4_76h07")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -110,8 +110,8 @@ texture = ExtResource("4_76h07")
 
 [sub_resource type="TileSet" id="TileSet_a37qn"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_mox17")
-sources/2 = SubResource("TileSetAtlasSource_npahg")
+sources/0 = SubResource("TileSetAtlasSource_u0pfu")
+sources/2 = SubResource("TileSetAtlasSource_bsw0v")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72bis"]
 bg_color = Color(0.72549, 0.72549, 0.72549, 1)
